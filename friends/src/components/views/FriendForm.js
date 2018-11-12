@@ -1,11 +1,11 @@
 import React from 'react';
-import {connect} from 'redux';
-import { newFriend } from './action';
+import {connect} from 'react-redux';
+import { newFriend } from '../actions/action';
 
 class FriendForm extends React.Component {
     constructor(props) {
         super(props);
-        state = { 
+    this.state = { 
             name: "",
             age: 0,
             email: "",
@@ -22,12 +22,14 @@ class FriendForm extends React.Component {
         e.preventDefault();
         this.props.newFriend(this.state);
     }
+
     render() { 
         return ( 
-            <form>
-                <input type="text" name="name"></input>
-                <input type="text" name="age"></input>
-                <input type="text" name="email"></input>
+            <form onSubmit={this.submitHandler}>
+                <input placeholder="name" type="text" name="name" onInput={this.inputHandler}></input>
+                <input placeholder="age" type="text" name="age" onInput={this.inputHandler}></input>
+                <input placeholder="email" type="text" name="email" onInput={this.inputHandler}></input>
+                <button type="submit">Add Friend</button>
             </form>
          )
     }

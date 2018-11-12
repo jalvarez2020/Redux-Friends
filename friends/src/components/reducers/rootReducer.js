@@ -22,7 +22,8 @@ const initialState = {
               case SUCCESS: 
                   return Object.assign({}, state, {
                       friends: action.payload,
-                      fetchingFriends: false
+                      fetchingFriends: false,
+                      id: state.length + 1,
                     });
               case ERROR: 
                   return Object.assign({}, state,);

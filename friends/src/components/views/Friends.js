@@ -1,15 +1,12 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux';
 import {getFriends} from '../actions/action';
 import {Friend} from './Friend';
-import { connect } from 'react-redux';
+import FriendForm from './FriendForm';
+
 
 class Friends extends Component {
-  state = {
-    name: "",
-    age: "",
-    height: "",
-  }
-  
+
   componentDidMount() {
     this.props.getFriends();
   }
@@ -17,10 +14,11 @@ class Friends extends Component {
 
   render() {
 
-
+  
     return (
       <div>
-        {this.props.friends.map((friend) => <Friend key={friend.id} friend={friend} />)}
+        <div>{this.props.friends.map((friend) => <Friend key={friend.id} friend={friend} />)}</div>
+          <FriendForm />
       </div>
       )
   }
@@ -28,8 +26,9 @@ class Friends extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    friends: state.friends
+    friends: state.friends,
+    fetchingFriends: state.fetchingFriends,
   }
 }
 
-export default connect (mapStateToProps, {getFriends})(Friends);
+export default connect(mapStateToProps, {getFriends})(Friends);
