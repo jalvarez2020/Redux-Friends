@@ -69,7 +69,10 @@ Topics:
 ## Project
 
 * For this project you'll need to create a few React components that will interact with your Redux state.
-* This app can all be built in terms of a single view made up of multiple components. Some components will be connected to your Redux Store and others will get their data passed down as props from the connected components.
+
+* This app can all be built in terms of a single view made up of multiple components. Some components will be connected to your Redux 
+
+Store and others will get their data passed down as props from the connected components.
 
 No need for a router here. We can fit all we need into one page with some proper styling and layout decisions.
 
@@ -84,17 +87,24 @@ index.js
 ```
 
 * If you'd like, you can create multiple components and `connect` them all up to your `redux` state tree. You could have a component who's sole purpose is to render a form for updating a user; another component who's sole purpose is for creating users; and then another component who's sole purpose is to delete a user.
+
 * It really is up to you how you build this project. I suggest writing down the flow you want to follow, and then writing down each individual piece you need for each step in the flow (ie step 3, build containers - import connect, write mapStateToProps function, import action creators and pass them to connect, etc. etc.) so that this process doesn't feel as overwhelming.
+
 
 #### App.js
 
+
 * Inside of `App.js` I suggest doing the friend fetching for your _friends_ data from within `componentDidMount()`. You'll need to call an action creator that you build in order to fetch your friends.
+
 * A crude example of what this could potentially look like would be:
   ![Bad example](https://image.ibb.co/hpg7gw/Screen_Shot_2018_01_24_at_1_07_21_PM.png)
+
 * You **Definitely** want to style your application to look much better than mine!
 
 ## Stretch Problem
 
 * In the requirements for this project, we implemented a GET operation and a POST operation. Add two more actions, one for making a PUT request, and the other for making a DELETE request.
+
 * Style the friends list and the input field and make everything look nice.
+
 * Expand the number of properties that you put on each friend object. Feel free to remove the dummy data on the server or modify it in any way.
